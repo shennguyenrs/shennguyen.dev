@@ -1,22 +1,45 @@
 $white_bg: #fdfffc;
 $dark_bg: #0d1627;
 $yellow: #fcbf49;
+$ryb: #4c42ff;
+$light_red: #fe8a7f;
+
 $primary_font: 'Oswald', sans-serif;
-$secondary_font: 'Alfa Slab One', sans-serif;
+
+$h3_font_size: 2.8rem;
+
+$container_tb_padding: 1.2rem;
+$container_lr_padding: 4rem;
+
+@mixin safe_padding {
+  padding: $container_tb_padding $container_lr_padding;
+}
+
+@mixin secondary_font {
+  font-family: 'Alfa Slab One', sans-serif;
+  letter-spacing: 5px;
+}
+
+@mixin gradient_yellow_bg {
+  background: linear-gradient(60deg, $yellow 0%, $light_red 100%);
+}
+
+.sectionHeader {
+  @include secondary_font;
+  font-size: $h3_font_size;
+}
 
 .container {
+  @include safe_padding;
+
   background-color: $dark_bg;
   background-image: url('/images/bg_tiny.png');
   background-blend-mode: lighten;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80vw auto;
-  width: 100vw;
   height: 100vh;
   overflow: scroll;
-  font-family: $primary_font;
-  font-size: 18px;
-  color: $white_bg;
   text-align: center;
   display: grid;
   grid-template-rows: 10% 70% 20%;
@@ -70,20 +93,17 @@ $secondary_font: 'Alfa Slab One', sans-serif;
   position: relative;
 
   &__header {
-    font-family: 'Alfa Slab One', sans-serif;
+    @include secondary_font;
+
     color: $yellow;
     font-size: 4rem;
-  }
-
-  &__p {
-    font-size: 1.6rem;
   }
 }
 
 .heroFooter {
   grid-column-start: 1;
   grid-row-start: 3;
-  font-size: 2.8rem;
+  font-size: $h3_font_size;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -96,6 +116,77 @@ $secondary_font: 'Alfa Slab One', sans-serif;
 .arrowOnHover {
   position: relative;
   animation: movingHorizontal 1.2s ease infinite;
+}
+
+.about {
+  @include safe_padding;
+
+  background-color: $dark_bg;
+  height: 80vh;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+  }
+
+  img {
+    max-width: 300px;
+  }
+
+  &__img {
+    position: relative;
+    z-index: 1;
+    margin-left: $container_lr_padding;
+  }
+
+  &__img::after {
+    @include gradient_yellow_bg;
+
+    content: '';
+    width: 300px;
+    height: 300px;
+    top: 2rem;
+    right: 2rem;
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    border-radius: 6px;
+  }
+
+  &__p {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__p::after {
+    content: url('/images/quote_tiny.png');
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    bottom: 3rem;
+    z-index: -1;
+  }
+}
+
+.footer {
+  height: 20vh;
+  padding-top: $container_tb_padding;
+  background-color: $ryb;
+  text-align: center;
+  bottom: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 2rem;
+  }
 }
 
 // animate keyframes
