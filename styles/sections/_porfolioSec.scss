@@ -1,0 +1,27 @@
+.porfolio {
+  height: 100vh;
+  background-color: $dark_bg;
+
+  @include safe_padding;
+
+  &__header {
+    @include section_header;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 0.4rem;
+      width: 13rem;
+      border-radius: 10px;
+      bottom: -2px;
+      left: 0;
+
+      @include gradient_yellow_bg;
+    }
+  }
+
+  &__con {
+    padding-top: 4rem;
+  }
+}

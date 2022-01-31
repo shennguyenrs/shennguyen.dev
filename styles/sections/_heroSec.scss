@@ -1,0 +1,45 @@
+.heroSection {
+  background-color: $dark_bg;
+  background-image: url('/images/bg_tiny.png');
+  background-blend-mode: lighten;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80vw auto;
+  height: 100vh;
+  overflow: scroll;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 10% 70% 20%;
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+
+  @include safe_padding;
+}
+
+.heroContainer {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  position: relative;
+
+  &__header {
+    color: $yellow;
+    font-size: 4rem;
+
+    @include secondary_font;
+  }
+}
+
+.heroFooter {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  font-size: $h3_font_size;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__p:hover {
+    color: $yellow;
+  }
+}

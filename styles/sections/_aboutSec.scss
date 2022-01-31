@@ -1,0 +1,55 @@
+.about {
+  height: 80vh;
+  background-color: $dark_bg;
+
+  @include safe_padding;
+
+  &__header {
+    @include section_header;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    margin-top: 8rem;
+  }
+
+  img {
+    max-width: 300px;
+  }
+
+  &__img {
+    position: relative;
+    z-index: 1;
+    margin-left: $container_lr_padding;
+
+    &::after {
+      content: '';
+      width: 300px;
+      height: 300px;
+      top: 2rem;
+      right: 2rem;
+      display: inline-block;
+      position: absolute;
+      z-index: -1;
+      border-radius: 6px;
+
+      @include gradient_yellow_bg;
+    }
+  }
+
+  &__p {
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: url('/images/quote_tiny.png');
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      bottom: 1rem;
+      z-index: -1;
+    }
+  }
+}

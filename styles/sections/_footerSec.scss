@@ -1,0 +1,19 @@
+.footer {
+  height: 20vh;
+  padding-top: $container_tb_padding;
+  background-color: $ryb;
+  text-align: center;
+  bottom: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 2rem;
+  }
+}

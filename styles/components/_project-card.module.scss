@@ -1,0 +1,59 @@
+@import '../abstracts/_variables.scss';
+
+@mixin properties {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 10px;
+}
+
+.projectCon {
+  position: relative;
+  @include properties;
+
+  img {
+    object-fit: cover;
+    @include properties;
+  }
+
+  &__descriptionCon {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(76, 66, 255, 0.8);
+
+    @include properties;
+  }
+
+  &:hover &__descriptionCon {
+    visibility: visible;
+  }
+}
+
+.infoCon {
+  max-width: 20rem;
+
+  &__header {
+    font-weight: 700;
+  }
+
+  &__p {
+    font-style: italic;
+  }
+
+  li {
+    padding-left: 0.6rem;
+  }
+
+  li::marker {
+    content: attr(data-icon);
+    font-size: 1.25rem;
+  }
+}
