@@ -11,7 +11,7 @@ import styles from '../styles/all.module.scss';
 import ProjectCards from '../components/ProjectCard';
 
 // Models
-import { ProjectInfo } from '../models';
+import { ProjectInfo, WebStatus } from '../models';
 
 const aboutVariants = {
   hidden: {
@@ -31,7 +31,9 @@ const projects: ProjectInfo[] = [
   {
     name: 'Grocery Plus (2021)',
     description: 'A sharable shopping list through phone number',
-    image: '/images/projects/groceryplus_tiny.jpg',
+    image: '/images/projects/groceryplus_tiny.png',
+    link: '/',
+    status: WebStatus.DOWN,
     details: [
       {
         name: 'Frontend',
@@ -52,6 +54,69 @@ const projects: ProjectInfo[] = [
       {
         name: 'Deployed on',
         used: 'Google App Engine',
+      },
+    ],
+  },
+  {
+    name: 'Weather Index viewer (2021)',
+    description: 'View Weather index in SQL database and download CSV',
+    image: '/images/projects/groceryplus_tiny.png',
+    link: '/',
+    status: WebStatus.DOWN,
+    details: [
+      {
+        name: 'Frontend',
+        used: 'React, MUI 5',
+      },
+      {
+        name: 'REST Api',
+        used: 'Node Js, Express',
+      },
+      {
+        name: 'Database',
+        used: 'MySQL',
+      },
+      {
+        name: 'Language',
+        used: 'Typescript',
+      },
+      {
+        name: 'Deployed on',
+        used: 'Google App Engine',
+      },
+    ],
+  },
+  {
+    name: 'Coco-farm.vn (2020)',
+    description: 'Marketing campaign landing page',
+    image: '/images/projects/coco-farm_tiny.png',
+    link: 'https://coco-farm.herokuapp.com/index.html',
+    status: WebStatus.UP,
+    details: [
+      {
+        name: 'Frontend',
+        used: 'HTML, CSS',
+      },
+      {
+        name: 'Deployed on',
+        used: 'Heroku',
+      },
+    ],
+  },
+  {
+    name: 'Sisustuskipna (2020)',
+    description: 'Home decoration agency company website',
+    image: '/images/projects/company-website_tiny.png',
+    link: 'https://company-website-110621.herokuapp.com/index.html',
+    status: WebStatus.UP,
+    details: [
+      {
+        name: 'Frontend',
+        used: 'HTML, CSS',
+      },
+      {
+        name: 'Deployed on',
+        used: 'Heroku',
       },
     ],
   },
@@ -127,6 +192,8 @@ const Home: NextPage = () => {
               header={item.name}
               description={item.description}
               imgSource={item.image}
+              link={item.link}
+              status={item.status}
               details={item.details}
             />
           ))}

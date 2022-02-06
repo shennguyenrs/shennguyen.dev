@@ -2,7 +2,7 @@
 
 @mixin properties {
   height: 20rem;
-  width: 20rem;
+  max-width: 20rem;
   border-radius: 10px;
 }
 
@@ -10,8 +10,14 @@
   position: relative;
   @include properties;
 
+  &__imgCon {
+    overflow: hidden;
+    @include properties;
+  }
+
   img {
     object-fit: cover;
+    transition: all 0.5s ease-in-out;
     @include properties;
   }
 
@@ -30,10 +36,35 @@
     background: rgba(76, 66, 255, 0.8);
 
     @include properties;
+
+    a,
+    p {
+      font-weight: 400;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    p {
+      cursor: not-allowed;
+    }
+
+    &__disabled {
+      background: rgba(254, 138, 127, 0.8);
+    }
   }
 
   &:hover &__descriptionCon {
     visibility: visible;
+
+    a,
+    p {
+      opacity: 1;
+      transform: translateY(-2rem);
+    }
+  }
+
+  &:hover img {
+    transform: scale(1.2);
   }
 }
 
