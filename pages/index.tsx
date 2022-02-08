@@ -7,6 +7,9 @@ import { useInView } from 'react-intersection-observer';
 // Styles
 import styles from '../styles/all.module.scss';
 
+// Sections
+import FooterSec from '../sections/FooterSec';
+
 // Components
 import ProjectCards from '../components/ProjectCard';
 
@@ -29,15 +32,36 @@ const aboutVariants = {
 
 const projects: ProjectInfo[] = [
   {
+    name: 'Wolt Internship assignment (2022)',
+    description: 'Delivery fee calculator',
+    image: '/images/projects/delivery_tiny.png',
+    link: 'https://wolt-internship-2022.herokuapp.com/',
+    status: WebStatus.UP,
+    details: [
+      {
+        name: 'Frontend',
+        used: 'React Js, SCSS',
+      },
+      {
+        name: 'Language',
+        used: 'Typescript',
+      },
+      {
+        name: 'Deployed on',
+        used: 'Heroku',
+      },
+    ],
+  },
+  {
     name: 'Grocery Plus (2021)',
     description: 'A sharable shopping list through phone number',
     image: '/images/projects/groceryplus_tiny.png',
-    link: '/',
+    link: '',
     status: WebStatus.DOWN,
     details: [
       {
         name: 'Frontend',
-        used: 'React, MUI 5',
+        used: 'React Js, MUI 5',
       },
       {
         name: 'Framework',
@@ -61,15 +85,15 @@ const projects: ProjectInfo[] = [
     name: 'Weather Index viewer (2021)',
     description: 'View Weather index in SQL database and download CSV',
     image: '/images/projects/groceryplus_tiny.png',
-    link: '/',
+    link: '',
     status: WebStatus.DOWN,
     details: [
       {
         name: 'Frontend',
-        used: 'React, MUI 5',
+        used: 'React Js, MUI 5',
       },
       {
-        name: 'REST Api',
+        name: 'RESTful Api',
         used: 'Node Js, Express',
       },
       {
@@ -223,20 +247,7 @@ const Home: NextPage = () => {
           </div>
         </motion.div>
       </div>
-      <div className={styles.footer}>
-        <p className={styles.footer__p}>Handcrafted by me. Made in 🇫🇮</p>
-        <div className={styles.footer__social}>
-          <a href="https://linkedin.com/in/annguyen080196">
-            <img src="/images/linkedin_tiny.png" alt="linkedin" />
-          </a>
-          <a href="mailto:shennguyen.redshinobi96@gmail.com?subject=Hi%2C%20Nice%20to%20meet%20you%20%F0%9F%91%8B&body=My%20name%20is">
-            <img src="/images/at_tiny.png" alt="at" />
-          </a>
-          <a href="https://wa.me/0449314926">
-            <img src="/images/whatsapp_tiny.png" alt="whatsapp" />
-          </a>
-        </div>
-      </div>
+      <FooterSec />
     </>
   );
 };

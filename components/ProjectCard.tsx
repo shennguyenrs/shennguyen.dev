@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 
+// Icons
+import { IoLogoGithub, IoChevronForwardOutline } from 'react-icons/io5';
+
+// Styles
 import styles from '../styles/components/_project-card.module.scss';
 
 // Models
@@ -21,14 +25,12 @@ const ProjectCard = ({
   details: TechStack[];
 }) => {
   const [siteStatus, setSiteStatus] = useState<string>('');
-  const [siteLink, setSiteLink] = useState<string>('');
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   // Update status and link on first load
   useEffect(() => {
     if (status === WebStatus.UP) {
       setSiteStatus('Go to website');
-      setSiteLink(link);
       return;
     }
 
@@ -58,8 +60,27 @@ const ProjectCard = ({
               (isDisabled && styles.projectCon__descriptionCon__disabled) || ''
           }
         >
-          {(isDisabled && <p>{siteStatus}</p>) || (
-            <a href={siteLink}>{siteStatus}</a>
+          {(isDisabled && (
+            <>
+              <p>
+                🛑 <b>{siteStatus}</b>
+              </p>
+              {link !== '' && (
+                <a href={link}>
+                  <div className={styles.projectCon__descriptionCon__linkCon}>
+                    <IoLogoGithub fontSize="2rem" />
+                    <p>View sourcecode</p>
+                  </div>
+                </a>
+              )}
+            </>
+          )) || (
+            <a href={link}>
+              <div className={styles.projectCon__descriptionCon__linkCon}>
+                <p>{siteStatus}</p>
+                <IoChevronForwardOutline fontSize="2rem" />
+              </div>
+            </a>
           )}
         </div>
       </div>
@@ -68,8 +89,9 @@ const ProjectCard = ({
         <p className={styles.infoCon__p}>{description}</p>
         <ul>
           {details.map((stack) => (
-            <li key={stack.name} className={styles.info__p} data-icon="🚀">
-              {stack.name}: {stack.used}
+            <li key={stack.name}>
+              <b className={styles.infoCon__title}>{stack.name}</b>:{' '}
+              {stack.used}
             </li>
           ))}
         </ul>

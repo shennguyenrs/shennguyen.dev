@@ -37,29 +37,31 @@
 
     @include properties;
 
-    a,
-    p {
+    p,
+    svg {
       font-weight: 400;
       opacity: 0;
       transition: all 0.5s ease-in-out;
     }
 
-    p {
-      cursor: not-allowed;
-    }
-
     &__disabled {
       background: rgba(254, 138, 127, 0.8);
+    }
+
+    &__linkCon {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
     }
   }
 
   &:hover &__descriptionCon {
     visibility: visible;
 
-    a,
-    p {
+    p,
+    svg {
       opacity: 1;
-      transform: translateY(-2rem);
+      transform: translateY(2rem);
     }
   }
 
@@ -79,12 +81,7 @@
     font-style: italic;
   }
 
-  li {
-    padding-left: 0.6rem;
-  }
-
-  li::marker {
-    content: attr(data-icon);
-    font-size: 1.25rem;
+  &__title {
+    color: $yellow;
   }
 }

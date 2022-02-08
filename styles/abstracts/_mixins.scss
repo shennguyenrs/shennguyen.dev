@@ -5,6 +5,7 @@
 @mixin secondary_font {
   font-family: 'Alfa Slab One', sans-serif;
   letter-spacing: 5px;
+  line-height: 4rem;
 }
 
 @mixin gradient_yellow_bg {
