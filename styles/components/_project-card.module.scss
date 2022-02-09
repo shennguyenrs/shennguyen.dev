@@ -1,13 +1,14 @@
 @import '../abstracts/_variables.scss';
 
 @mixin properties {
-  height: 20rem;
-  max-width: 20rem;
-  border-radius: 10px;
+  height: $project_card;
+  width: $project_card;
+  border-radius: $border_radius;
 }
 
 .projectCon {
   position: relative;
+
   @include properties;
 
   &__imgCon {
@@ -71,7 +72,8 @@
 }
 
 .infoCon {
-  max-width: 20rem;
+  max-width: $project_card;
+  margin-top: 1rem;
 
   &__header {
     font-weight: 700;

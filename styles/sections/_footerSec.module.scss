@@ -2,34 +2,57 @@
 @import '../abstracts/_variables.scss';
 
 .footer {
-  height: 25vh;
-  padding-top: $container_tb_padding;
   background-color: $ryb;
   text-align: center;
-  bottom: 0;
   font-size: 1.4rem;
   font-weight: 400;
+
+  @include section_padding;
 
   &__social {
     display: flex;
     gap: 2rem;
     justify-content: center;
+    margin: 1.6rem auto;
   }
 
   img {
     max-width: 2rem;
   }
 
-  &__message {
-    margin-top: 3rem;
+  &__mes {
+    max-width: fit-content;
+    margin: auto;
     color: $yellow;
-    opacity: 0;
-    transform: translateY(2rem);
-    transition: all 0.5s ease-in-out;
 
-    &__onShow {
-      opacity: 1;
-      transform: translateY(-2rem);
+    @include keyframes(bounce) {
+      0% {
+        transform: scale(1, 1) translateY(0);
+      }
+      10% {
+        transform: scale(1.1, 0.9) translateY(0);
+      }
+      30% {
+        transform: scale(0.9, 1.1) translateY(-7px);
+      }
+      50% {
+        transform: scale(1.05, 0.95) translateY(0);
+      }
+      58% {
+        transform: scale(1, 1) translateY(-7px);
+      }
+      65% {
+        transform: scale(1, 1) translateY(0);
+      }
+      100% {
+        transform: scale(1, 1) translateY(0);
+      }
+    }
+
+    @include animate(bounce, 1s, ease, infinite);
+
+    &__noAnimate {
+      animation: none;
     }
   }
 }

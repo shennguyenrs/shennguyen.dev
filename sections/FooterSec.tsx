@@ -3,8 +3,10 @@ import useHook from '../hooks/useHover';
 
 import styles from '../styles/sections/_footerSec.module.scss';
 
+const initialMes = 'Connect me now 👆';
+
 const FooterSec = () => {
-  const [message, setMessage] = useState<string>('');
+  const [message, setMessage] = useState<string>(initialMes);
   const [linkedin, linkedinHovering] = useHook<HTMLAnchorElement>();
   const [email, emailHovering] = useHook<HTMLAnchorElement>();
   const [phone, phoneHovering] = useHook<HTMLAnchorElement>();
@@ -25,7 +27,7 @@ const FooterSec = () => {
       return;
     }
 
-    setMessage('');
+    setMessage(initialMes);
   }, [linkedinHovering, emailHovering, phoneHovering]);
 
   return (
@@ -47,9 +49,9 @@ const FooterSec = () => {
       </div>
       <p
         className={
-          styles.footer__message +
+          styles.footer__mes +
           ' ' +
-          (message !== '' && styles.footer__message__onShow)
+          (message !== initialMes && styles.footer__mes__noAnimate)
         }
       >
         {message}

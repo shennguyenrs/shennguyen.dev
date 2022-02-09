@@ -1,11 +1,5 @@
 .heroSection {
-  background-color: $dark_bg;
-  background-blend-mode: lighten;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80vw auto;
   height: 100vh;
-  overflow: scroll;
   text-align: center;
   display: grid;
   grid-template-rows: 10% 70% 20%;
@@ -13,20 +7,28 @@
   justify-items: center;
   align-items: center;
 
-  @include safe_padding;
+  @include section_padding;
 }
 
 .heroContainer {
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 2;
-  position: relative;
+
+  @include keyframes(movingUp) {
+    0% {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @include animate(movingUp, 2s, ease, 1);
 
   &__header {
-    color: $yellow;
-    font-size: 4rem;
-
-    @include secondary_font;
+    @include hero_header;
   }
 }
 

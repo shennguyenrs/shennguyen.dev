@@ -1,14 +1,19 @@
-// Colors
+/* Colors */
 $white_bg: #fdfffc;
 $dark_bg: #0d1627;
 $yellow: #fcbf49;
 $ryb: #4c42ff;
 $light_red: #fe8a7f;
 
-// Typography
+/* Typography */
 $primary_font: 'Rubik', sans-serif;
-
 $h3_font_size: 2.8rem;
 
-$container_tb_padding: 1.2rem;
-$container_lr_padding: 4.8rem;
+/* Breakpoints */
+$screen_sm_min: 360px;
+$screen_md_min: 768px;
+$screen_lg_min: 992px;
+
+/* Other styles */
+$border_radius: 6px;
+$project_card: 18rem;
