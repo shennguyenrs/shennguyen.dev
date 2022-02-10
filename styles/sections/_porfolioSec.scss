@@ -19,7 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 1rem;
+    gap: 4rem;
 
     @include container_margin;
   }

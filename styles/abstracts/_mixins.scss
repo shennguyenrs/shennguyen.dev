@@ -49,7 +49,7 @@
     position: absolute;
     height: 0.4rem;
     width: #{$width};
-    border-radius: $border_radius;
+    border-radius: $general_radius;
     bottom: -2px;
     left: 0;
 
@@ -85,6 +85,12 @@
 @mixin safe_margin_wide_screen {
   max-width: 1600px;
   margin: auto auto;
+}
+
+@mixin card_properties {
+  height: $project_card;
+  width: $project_card;
+  border-radius: $general_radius;
 }
 
 /* Breakpoints */

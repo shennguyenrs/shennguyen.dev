@@ -1,0 +1,44 @@
+@import '../abstracts/_variables.scss';
+@import '../abstracts/_mixins.scss';
+
+.linkCon {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-style: italic;
+  width: fit-content;
+
+  @include gradient_yellow_bg;
+  background-clip: text;
+  color: transparent;
+
+  svg {
+    color: $light_red;
+
+    @include keyframes(bounce-forward) {
+      0% {
+        transform: scale(1, 1) translateX(0);
+      }
+      10% {
+        transform: scale(1.1, 0.9) translateX(0);
+      }
+      30% {
+        transform: scale(0.9, 1.1) translateX(10px);
+      }
+      50% {
+        transform: scale(1.1, 0.9) translateX(0);
+      }
+      57% {
+        transform: scale(1, 1) translateX(-2px);
+      }
+      64% {
+        transform: scale(1, 1) translateX(0);
+      }
+      100% {
+        transform: scale(1, 1) translateX(0);
+      }
+    }
+
+    @include animate(bounce-forward, 1s, ease-in-out, infinite);
+  }
+}

@@ -4,10 +4,17 @@
 .footer {
   background-color: $ryb;
   text-align: center;
-  font-size: 1.4rem;
   font-weight: 400;
 
   @include section_padding;
+
+  @include sm {
+    font-size: 1.2rem;
+  }
+
+  @include md {
+    font-size: 1.4rem;
+  }
 
   &__social {
     display: flex;

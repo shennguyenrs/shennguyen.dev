@@ -1,0 +1,29 @@
+// Abstracts
+@import './abstracts/_variables.scss';
+@import './abstracts/_mixins.scss';
+
+@import '../styles/sections/_porfolioSec.scss';
+
+.project {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+
+  &__header {
+    @include section_header;
+    position: relative;
+
+    @include sm {
+      @include gradient_bottom_line(13rem);
+    }
+
+    @include md {
+      @include gradient_bottom_line(21rem);
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+}

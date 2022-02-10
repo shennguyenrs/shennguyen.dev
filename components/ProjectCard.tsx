@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 // Icons
 import { IoLogoGithub, IoChevronForwardOutline } from 'react-icons/io5';
 
@@ -7,81 +5,44 @@ import { IoLogoGithub, IoChevronForwardOutline } from 'react-icons/io5';
 import styles from '../styles/components/_project-card.module.scss';
 
 // Models
-import { TechStack, WebStatus } from '../models';
+import { TechStack } from '../models';
 
 const ProjectCard = ({
   imgSource,
   link,
+  sourcecode,
   header,
-  status,
   description,
   details,
 }: {
   imgSource: string;
   link: string;
+  sourcecode: string;
   header: string;
-  status: WebStatus;
   description: string;
   details: TechStack[];
 }) => {
-  const [siteStatus, setSiteStatus] = useState<string>('');
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const isTargetAvailable = (targetLink: string) => {
+    return targetLink.length === 0;
+  };
 
-  // Update status and link on first load
-  useEffect(() => {
-    if (status === WebStatus.UP) {
-      setSiteStatus('Go to website');
-      return;
+  const LinkWithDisable = ({ targetLink }: { targetLink: string }) => {
+    if (targetLink.length === 0) {
+      return <p>Server down</p>;
     }
 
-    if (status === WebStatus.DOWN) {
-      setSiteStatus('Server down');
-      setIsDisabled(true);
-      return;
-    }
-
-    if (status === WebStatus.DEV) {
-      setSiteStatus('In development');
-      setIsDisabled(true);
-      return;
-    }
-  }, []);
+    return (
+      <a href={targetLink} target="_blank">
+        <p>View site</p>
+      </a>
+    );
+  };
 
   return (
     <div>
       <div className={styles.projectCon}>
         <div className={styles.projectCon__imgCon}>
           <img src={imgSource} />
-        </div>
-        <div
-          className={
-            styles.projectCon__descriptionCon +
-              ' ' +
-              (isDisabled && styles.projectCon__descriptionCon__disabled) || ''
-          }
-        >
-          {(isDisabled && (
-            <>
-              <p>
-                🛑 <b>{siteStatus}</b>
-              </p>
-              {link !== '' && (
-                <a href={link}>
-                  <div className={styles.projectCon__descriptionCon__linkCon}>
-                    <IoLogoGithub fontSize="2rem" />
-                    <p>View sourcecode</p>
-                  </div>
-                </a>
-              )}
-            </>
-          )) || (
-            <a href={link}>
-              <div className={styles.projectCon__descriptionCon__linkCon}>
-                <p>{siteStatus}</p>
-                <IoChevronForwardOutline fontSize="2rem" />
-              </div>
-            </a>
-          )}
         </div>
       </div>
       <div className={styles.infoCon}>
@@ -95,6 +56,28 @@ const ProjectCard = ({
             </li>
           ))}
         </ul>
+      </div>
+      <div className={styles.buttonCon}>
+        <button
+          className={
+            styles.buttonCon__btn +
+            ' ' +
+            (isTargetAvailable(link) && styles.buttonCon__btn__disabled)
+          }
+        >
+          {!isTargetAvailable(link) && (
+            <IoChevronForwardOutline fontSize="1.4rem" />
+          )}
+          <LinkWithDisable targetLink={link} />
+        </button>
+        {!isTargetAvailable(sourcecode) && (
+          <button className={styles.buttonCon__btn}>
+            <IoLogoGithub fontSize="1.4rem" />
+            <a href={sourcecode} target="_blank">
+              <p>View source</p>
+            </a>
+          </button>
+        )}
       </div>
     </div>
   );

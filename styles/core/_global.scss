@@ -11,6 +11,7 @@ body {
   font-weight: 200;
   line-height: 2rem;
   color: $white_bg;
+  display: block;
 
   @include sm {
     font-size: 18px;
@@ -23,4 +24,23 @@ body {
   @include lg {
     font-size: 22px;
   }
+}
+
+button {
+  background-color: $ryb;
+  color: $white_bg;
+  border: none;
+  border-radius: $general_radius;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  &:active {
+    transform: translateY(8px);
+  }
+}
+
+.page-wrap {
+  height: 100%;
+  position: absolute;
 }

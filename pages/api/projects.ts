@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 // Models
-import { ProjectInfo, WebStatus } from '../../models';
+import { ProjectInfo } from '../../models';
 
 const projects: ProjectInfo[] = [
   {
@@ -10,7 +10,7 @@ const projects: ProjectInfo[] = [
     description: 'Delivery fee calculator',
     image: '/images/projects/delivery_tiny.png',
     link: 'https://wolt-internship-2022.herokuapp.com/',
-    status: WebStatus.UP,
+    sourcecode: 'https://github.com/shennguyenrs/wolt-internship-dev-2022',
     details: [
       {
         name: 'Frontend',
@@ -31,7 +31,7 @@ const projects: ProjectInfo[] = [
     description: 'A sharable shopping list through phone number',
     image: '/images/projects/groceryplus_tiny.png',
     link: '',
-    status: WebStatus.DOWN,
+    sourcecode: '',
     details: [
       {
         name: 'Frontend',
@@ -56,15 +56,15 @@ const projects: ProjectInfo[] = [
     ],
   },
   {
-    name: 'Weather Index viewer',
-    description: 'View Weather index in SQL database and download CSV',
-    image: '/images/projects/groceryplus_tiny.png',
+    name: 'Landing page with email subscription',
+    description: 'Landing page with email subscription database in SQL',
+    image: '/images/projects/liana_tiny.png',
     link: '',
-    status: WebStatus.DOWN,
+    sourcecode: 'https://github.com/shennguyenrs/liana_technologies_assignment',
     details: [
       {
         name: 'Frontend',
-        used: 'React Js, MUI 5',
+        used: 'HTML, CSS, React Js, MUI 5',
       },
       {
         name: 'RESTful Api',
@@ -89,7 +89,7 @@ const projects: ProjectInfo[] = [
     description: 'Marketing campaign landing page',
     image: '/images/projects/coco-farm_tiny.png',
     link: 'https://coco-farm.herokuapp.com/index.html',
-    status: WebStatus.UP,
+    sourcecode: '',
     details: [
       {
         name: 'Frontend',
@@ -106,7 +106,7 @@ const projects: ProjectInfo[] = [
     description: 'Home decoration agency company website',
     image: '/images/projects/company-website_tiny.png',
     link: 'https://company-website-110621.herokuapp.com/index.html',
-    status: WebStatus.UP,
+    sourcecode: '',
     details: [
       {
         name: 'Frontend',

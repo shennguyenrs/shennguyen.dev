@@ -1,8 +1,7 @@
 import type { GetServerSideProps } from 'next';
-import Head from 'next/head';
 import axios from 'axios';
-import { motion, useAnimation } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { m, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 // Styles
@@ -13,23 +12,13 @@ import FooterSec from '../sections/FooterSec';
 
 // Components
 import ProjectCards from '../components/ProjectCard';
+import GoToButton from '../components/GoToButton';
 
 // Models
 import { ProjectInfo } from '../models';
 
-const aboutVariants = {
-  hidden: {
-    scale: 0.8,
-    opacity: 0,
-  },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-};
+// Animation
+import { scaleUp } from '../lib/animations';
 
 const Home = ({ projects }: { projects: ProjectInfo[] }) => {
   const controls = useAnimation();
@@ -42,11 +31,6 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
 
   return (
     <>
-      <Head>
-        <title>shennguyen.dev</title>
-        <meta name="description" content="Shen Personal Website" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className={styles.heroSection}>
         <div className={styles.heroContainer}>
           <h1 className={styles.heroContainer__header}>
@@ -57,30 +41,15 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
           </p>
         </div>
       </div>
-      <div className={styles.porfolio}>
-        <h1 className={styles.porfolio__header}>Porfolio</h1>
-        <div className={styles.porfolio__con}>
-          {projects.map((item) => (
-            <ProjectCards
-              key={item.name}
-              header={item.name}
-              description={item.description}
-              imgSource={item.image}
-              link={item.link}
-              status={item.status}
-              details={item.details}
-            />
-          ))}
-        </div>
-      </div>
       <div className={styles.about}>
         <p className={styles.about__header}>About me</p>
-        <motion.div
+        <m.div
           className={styles.about__container}
           ref={ref}
           initial="hidden"
           animate={controls}
-          variants={aboutVariants}
+          variants={scaleUp.variants}
+          transition={scaleUp.transition}
         >
           <div className={styles.about__img}>
             <img src="/images/me_tiny.png" alt="myself-img" />
@@ -93,9 +62,29 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
               bring creativity and technology into the success of businesses.
               <br /> <br />
               My works are powered Figma, Neovim and Google.
+              <GoToButton targetLink="/about" content="More details" />
             </p>
           </div>
-        </motion.div>
+        </m.div>
+      </div>
+      <div className={styles.porfolio}>
+        <h1 className={styles.porfolio__header}>Porfolio</h1>
+        <div className={styles.porfolio__con}>
+          {projects.map((item) => (
+            <ProjectCards
+              key={item.name}
+              header={item.name}
+              description={item.description}
+              imgSource={item.image}
+              link={item.link}
+              sourcecode={item.sourcecode}
+              details={item.details}
+            />
+          ))}
+        </div>
+        <div className={styles.porfolio__con}>
+          <GoToButton targetLink="/projects" content="View all projects" />
+        </div>
       </div>
       <FooterSec />
     </>

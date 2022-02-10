@@ -1,73 +1,32 @@
 @import '../abstracts/_variables.scss';
-
-@mixin properties {
-  height: $project_card;
-  width: $project_card;
-  border-radius: $border_radius;
-}
+@import '../abstracts/_mixins.scss';
 
 .projectCon {
   position: relative;
 
-  @include properties;
+  @include card_properties;
 
   &__imgCon {
     overflow: hidden;
-    @include properties;
+    transition: all 0.5s ease;
+
+    @include card_properties;
+
+    &:hover {
+      box-shadow: 10px 10px 20px rgba(76, 66, 255, 0.8);
+    }
   }
 
   img {
     object-fit: cover;
-    transition: all 0.5s ease-in-out;
-    @include properties;
+    transition: all 0.5s ease;
+    @include card_properties;
   }
 
-  &__descriptionCon {
-    visibility: hidden;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgba(76, 66, 255, 0.8);
-
-    @include properties;
-
-    p,
-    svg {
-      font-weight: 400;
-      opacity: 0;
-      transition: all 0.5s ease-in-out;
+  @include lg {
+    &:hover img {
+      transform: scale(1.2);
     }
-
-    &__disabled {
-      background: rgba(254, 138, 127, 0.8);
-    }
-
-    &__linkCon {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-  }
-
-  &:hover &__descriptionCon {
-    visibility: visible;
-
-    p,
-    svg {
-      opacity: 1;
-      transform: translateY(2rem);
-    }
-  }
-
-  &:hover img {
-    transform: scale(1.2);
   }
 }
 
@@ -85,5 +44,23 @@
 
   &__title {
     color: $yellow;
+  }
+}
+
+.buttonCon {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    &__disabled {
+      background-color: $light_red;
+    }
   }
 }
