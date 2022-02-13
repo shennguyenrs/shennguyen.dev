@@ -113,3 +113,75 @@
 
   @include animate(bounce-forward, 1s, ease-in-out, infinite);
 }
+
+// Bounce up and down
+@mixin bounce-up-down {
+  @include keyframes(bounce-up-down) {
+    0% {
+      transform: scale(1, 1) translateY(0);
+    }
+    10% {
+      transform: scale(1.1, 0.9) translateY(0);
+    }
+    30% {
+      transform: scale(0.9, 1.1) translateY(-7px);
+    }
+    50% {
+      transform: scale(1.05, 0.95) translateY(0);
+    }
+    58% {
+      transform: scale(1, 1) translateY(-7px);
+    }
+    65% {
+      transform: scale(1, 1) translateY(0);
+    }
+    100% {
+      transform: scale(1, 1) translateY(0);
+    }
+  }
+
+  @include animate(bounce-up-down, 1s, ease, infinite);
+}
+
+// Moving up
+@mixin fade_up {
+  @include keyframes(fade-up) {
+    0% {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @include animate(fade-up, 2s, ease, 1);
+}
+
+// Change hue hero background
+@mixin hue_rotate {
+  @include keyframes(hue-rotate) {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  @include animate(hue-rotate, 10s, ease, infinite);
+}
+
+// Change black to white header
+@mixin black_t_white {
+  @include keyframes(black-white) {
+    0% {
+      color: $white_bg;
+    }
+    50% {
+      color: $dark_bg;
+    }
+    100% {
+      color: $white_bg;
+    }
+  }
+
+  @include animate(black-white, 10s, ease, infinite);
+}

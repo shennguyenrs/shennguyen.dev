@@ -50,10 +50,26 @@ $gap: 2rem;
     }
   }
 
+  .wave_circles {
+    z-index: -1;
+
+    svg {
+      position: absolute;
+    }
+
+    &__st {
+      top: 0;
+      right: 0;
+    }
+
+    &__nd {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
   &__header {
     @include section_header;
-
-    position: relative;
 
     @include sm {
       @include gradient_bottom_line(10.5rem);

@@ -13,6 +13,73 @@ const AboutMe = () => {
       <div className={styles.aboutMe}>
         <div className={styles.blur_dot_red}></div>
         <div className={styles.blur_dot_blue}></div>
+        <div className={styles.blur_dot_yellow}></div>
+        <div className={styles.wave_circles}>
+          <svg
+            className={styles.wave_circles__st}
+            width="825"
+            height="1030"
+            viewBox="-500 500 825 1030"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g opacity="0.05">
+              <circle
+                cx="310"
+                cy="515"
+                r="512.5"
+                stroke="white"
+                strokeWidth="5"
+              />
+              <circle
+                cx="310"
+                cy="515"
+                r="397.5"
+                stroke="white"
+                strokeWidth="5"
+              />
+              <circle
+                cx="310"
+                cy="515"
+                r="247.5"
+                stroke="white"
+                strokeWidth="5"
+              />
+            </g>
+          </svg>
+          <svg
+            className={styles.wave_circles__nd}
+            width="825"
+            height="1030"
+            viewBox="0 -500 825 1030"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g opacity="0.05">
+              <circle
+                cx="310"
+                cy="515"
+                r="512.5"
+                stroke="white"
+                strokeWidth="5"
+              />
+              <circle
+                cx="310"
+                cy="515"
+                r="397.5"
+                stroke="white"
+                strokeWidth="5"
+              />
+              <circle
+                cx="310"
+                cy="515"
+                r="247.5"
+                stroke="white"
+                strokeWidth="5"
+              />
+            </g>
+          </svg>
+        </div>
         <p className={styles.aboutMe__header}>About me</p>
         <div className={styles.aboutMe__conOne}>
           <div className={styles.aboutMe__img}>
@@ -110,7 +177,6 @@ const AboutMe = () => {
         <div className={styles.aboutMe__link}>
           <GoToButton targetLink="/" content="Go back" />
         </div>
-        <div className={styles.blur_dot_yellow}></div>
       </div>
       <FooterSec />
     </>

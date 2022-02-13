@@ -33,31 +33,7 @@
     margin: auto;
     color: $yellow;
 
-    @include keyframes(bounce) {
-      0% {
-        transform: scale(1, 1) translateY(0);
-      }
-      10% {
-        transform: scale(1.1, 0.9) translateY(0);
-      }
-      30% {
-        transform: scale(0.9, 1.1) translateY(-7px);
-      }
-      50% {
-        transform: scale(1.05, 0.95) translateY(0);
-      }
-      58% {
-        transform: scale(1, 1) translateY(-7px);
-      }
-      65% {
-        transform: scale(1, 1) translateY(0);
-      }
-      100% {
-        transform: scale(1, 1) translateY(0);
-      }
-    }
-
-    @include animate(bounce, 1s, ease, infinite);
+    @include bounce_up_down;
 
     &__noAnimate {
       animation: none;

@@ -7,10 +7,10 @@
   @include secondary_font;
 
   @include sm {
-    color: $yellow;
     margin-bottom: 1rem;
     font-size: 2em;
     line-height: 3rem;
+    opacity: 0.7;
   }
 
   @include md {
@@ -24,6 +24,8 @@
 }
 
 @mixin section_header {
+  position: relative;
+
   @include secondary_font;
 
   @include sm {

@@ -3,11 +3,12 @@
 
 .projects {
   @include top_section_con;
+  @include safe_margin_wide_screen;
 
   &__header {
     @include section_header;
 
-    position: relative;
+    margin-top: 2rem;
 
     @include sm {
       @include gradient_bottom_line(13rem);

@@ -32,6 +32,9 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
 
   return (
     <div className={styles.home}>
+      <div className={styles.blur_dot_yellow}></div>
+      <div className={styles.blur_dot_red}></div>
+      <div className={styles.blur_dot_blue}></div>
       <div className={styles.heroSection}>
         <div className={styles.heroContainer}>
           <h1 className={styles.heroContainer__header}>
@@ -42,7 +45,6 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
           </p>
         </div>
       </div>
-      <div className={styles.blur_dot_red}></div>
       <div className={styles.about}>
         <p className={styles.about__header}>About me</p>
         <m.div
@@ -69,10 +71,8 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
           </div>
         </m.div>
       </div>
-      <div className={styles.blur_dot_yellow}></div>
       <div className={styles.porfolio}>
         <h1 className={styles.porfolio__header}>Porfolio</h1>
-        <div className={styles.blur_dot_blue}></div>
         <div className={styles.porfolio__con}>
           {projects.map((item) => (
             <ProjectCards

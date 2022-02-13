@@ -15,8 +15,8 @@
     @include blur_dot;
     @include red_dot;
 
-    top: 40rem;
-    left: 0rem;
+    bottom: 0;
+    left: 0;
   }
 
   .blur_dot_blue {
@@ -31,7 +31,7 @@
     @include blur_dot;
     @include yellow_dot;
 
-    bottom: 0;
-    left: 0;
+    top: 40rem;
+    left: 0rem;
   }
 }

@@ -56,3 +56,18 @@
     rgba(253, 255, 252, 0) 100%
   );
 }
+
+// Hero mesh gradient background
+@mixin hero_mesh_bg {
+  background-image: radial-gradient(
+      at 74% 5%,
+      hsla(61, 92%, 71%, 1) 0,
+      transparent 51%
+    ),
+    radial-gradient(at 7% 57%, hsla(238, 100%, 74%, 1) 0, transparent 51%),
+    radial-gradient(at 54% 59%, hsla(8, 93%, 74%, 1) 0, transparent 52%),
+    radial-gradient(at 19% 5%, hsla(329, 81%, 73%, 1) 0, transparent 55%),
+    radial-gradient(at 94% 94%, hsla(15, 66%, 66%, 1) 0, transparent 48%),
+    radial-gradient(at 91% 43%, hsla(332, 79%, 78%, 1) 0, transparent 59%),
+    radial-gradient(at 23% 28%, hsla(261, 98%, 63%, 1) 0, transparent 49%);
+}

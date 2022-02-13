@@ -7,6 +7,16 @@
   justify-items: center;
   align-items: center;
 
+  @include sm {
+    background-size: 200% 100%;
+  }
+
+  @include md {
+    background-size: 100% 100%;
+  }
+
+  @include hero_mesh_bg;
+  @include hue-rotate;
   @include section_padding;
 }
 
@@ -15,20 +25,15 @@
   grid-column-end: 4;
   grid-row-start: 2;
 
-  @include keyframes(movingUp) {
-    0% {
-      opacity: 0;
-      transform: translateY(5rem);
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @include animate(movingUp, 2s, ease, 1);
+  @include fade_up;
 
   &__header {
     @include hero_header;
+    @include black_t_white;
+  }
+
+  &__p {
+    font-weight: 500;
   }
 }
 
