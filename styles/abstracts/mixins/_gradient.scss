@@ -1,0 +1,58 @@
+// Linear gradient from yellow to red
+@mixin gradient_yellow_bg {
+  background: linear-gradient(60deg, $yellow 0%, $light_red 100%);
+}
+
+// Linear gradient from  blue to light blue
+@mixin gradient_blue_bg {
+  background: linear-gradient(
+    60deg,
+    rgba(76, 66, 255, 1) 0%,
+    rgba(119, 112, 255, 1) 100%
+  );
+}
+
+// Linear gradient yellow to red for text
+@mixin gradient_bottom_line($width) {
+  &::after {
+    content: '';
+    position: absolute;
+    height: 0.4rem;
+    width: #{$width};
+    border-radius: $general_radius;
+    bottom: -2px;
+    left: 0;
+
+    @include gradient_yellow_bg;
+  }
+}
+
+// Radial gradient red dot
+@mixin red_dot {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(254, 138, 127, 0.4) 0%,
+    rgba(252, 191, 73, 0.08) 60%,
+    rgba(254, 138, 127, 0) 100%
+  );
+}
+
+// Radial gradient blue dot {
+@mixin blue_dot {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(76, 66, 255, 0.4) 0%,
+    rgba(119, 112, 255, 0.08) 60%,
+    rgba(254, 138, 127, 0) 100%
+  );
+}
+
+// Radial gradient yellow dot
+@mixin yellow_dot {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(252, 191, 73, 0.4) 0%,
+    rgba(255, 193, 70, 0.08) 60%,
+    rgba(253, 255, 252, 0) 100%
+  );
+}

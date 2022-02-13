@@ -1,0 +1,115 @@
+// General
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+// Moving from side
+@mixin moved_from_side($side, $value) {
+  @include keyframes(moved-from-#{$side}) {
+    0% {
+      transform: translate3d(#{$value}, 0, 0);
+      opacity: 0;
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  @include animate(moved-from-#{$side}, 1s, ease-in, 1);
+}
+
+// Breathing dot
+@mixin breathing_dot {
+  @include keyframes(breathing) {
+    0% {
+      opacity: 0.1;
+      scale: 0.3;
+    }
+    25% {
+      opacity: 0.5;
+      scale: 0.6;
+    }
+    50% {
+      opacity: 0.8;
+      scale: 1;
+    }
+    75% {
+      opacity: 0.3;
+      scale: 0.8;
+    }
+    100% {
+      opacity: 0.1;
+      scale: 0.3;
+    }
+  }
+
+  @include animate(breathing, 6s, ease-in, infinite);
+}
+
+// Waving hand
+@mixin waving_hand {
+  @include keyframes(waving-hand) {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @include animate(waving-hand, 2s, ease, infinite);
+}
+
+// Bounce forward
+@mixin bouce_forward {
+  @include keyframes(bounce-forward) {
+    0% {
+      transform: scale(1, 1) translateX(0);
+    }
+    10% {
+      transform: scale(1.1, 0.9) translateX(0);
+    }
+    30% {
+      transform: scale(0.9, 1.1) translateX(8px);
+    }
+    50% {
+      transform: scale(1.1, 0.9) translateX(0);
+    }
+    57% {
+      transform: scale(1, 1) translateX(-2px);
+    }
+    64% {
+      transform: scale(1, 1) translateX(0);
+    }
+    100% {
+      transform: scale(1, 1) translateX(0);
+    }
+  }
+
+  @include animate(bounce-forward, 1s, ease-in-out, infinite);
+}

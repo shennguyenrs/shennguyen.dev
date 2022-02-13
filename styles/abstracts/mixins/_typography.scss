@@ -1,0 +1,38 @@
+@mixin secondary_font {
+  font-family: 'Alfa Slab One', cursive;
+  letter-spacing: 5px;
+}
+
+@mixin hero_header {
+  @include secondary_font;
+
+  @include sm {
+    color: $yellow;
+    margin-bottom: 1rem;
+    font-size: 2em;
+    line-height: 3rem;
+  }
+
+  @include md {
+    font-size: 2.4rem;
+  }
+
+  @include lg {
+    font-size: 3.4rem;
+    line-height: 4rem;
+  }
+}
+
+@mixin section_header {
+  @include secondary_font;
+
+  @include sm {
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+
+  @include md {
+    font-size: 2.8rem;
+    line-height: 1.6em;
+  }
+}

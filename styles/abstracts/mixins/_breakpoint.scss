@@ -1,0 +1,23 @@
+// Small devices
+// for smartphones
+@mixin sm {
+  @media (min-width: #{$screen_sm_min}) {
+    @content;
+  }
+}
+
+// Medium devices
+// for tabet
+@mixin md {
+  @media (min-width: #{$screen_md_min}) {
+    @content;
+  }
+}
+
+// Large devices
+// for desktop
+@mixin lg {
+  @media (min-width: #{$screen_lg_min}) {
+    @content;
+  }
+}

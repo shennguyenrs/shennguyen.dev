@@ -1,17 +1,12 @@
-// Abstracts
 @import './abstracts/_variables.scss';
 @import './abstracts/_mixins.scss';
 
-@import '../styles/sections/_porfolioSec.scss';
-
-.project {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100vw;
+.projects {
+  @include top_section_con;
 
   &__header {
     @include section_header;
+
     position: relative;
 
     @include sm {
@@ -23,7 +18,27 @@
     }
   }
 
-  &__footer {
-    margin-top: auto;
+  &__con {
+    @include container_margin;
+
+    @include sm {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    @include md {
+      display: grid;
+      grid-gap: 4rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include lg {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__link {
+    @include go_to_link_con;
   }
 }

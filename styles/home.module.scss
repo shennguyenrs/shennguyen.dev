@@ -6,3 +6,32 @@
 @import './sections/_heroSec.scss';
 @import './sections/_porfolioSec.scss';
 @import './sections/_aboutSec.scss';
+
+.home {
+  position: relative;
+  overflow: hidden;
+
+  .blur_dot_red {
+    @include blur_dot;
+    @include red_dot;
+
+    top: 40rem;
+    left: 0rem;
+  }
+
+  .blur_dot_blue {
+    @include blur_dot;
+    @include blue_dot;
+
+    top: 70rem;
+    right: -15rem;
+  }
+
+  .blur_dot_yellow {
+    @include blur_dot;
+    @include yellow_dot;
+
+    bottom: 0;
+    left: 0;
+  }
+}

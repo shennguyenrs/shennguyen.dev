@@ -1,0 +1,37 @@
+// Layout
+@mixin top_section_con {
+  display: flex;
+  flex-direction: column;
+
+  @include section_padding;
+}
+
+// Margin & Padding
+@mixin section_padding {
+  @include sm {
+    padding: 1.2rem 1.6rem;
+  }
+
+  @include md {
+    padding: 1.2rem 3rem;
+  }
+
+  @include lg {
+    padding: 1.2rem 4.8rem;
+  }
+}
+
+@mixin container_margin {
+  @include sm {
+    margin: 4rem auto;
+  }
+
+  @include md {
+    margin: 6rem auto;
+  }
+}
+
+@mixin safe_margin_wide_screen {
+  max-width: 1600px;
+  margin: auto;
+}

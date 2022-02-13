@@ -9,11 +9,23 @@
   &__imgCon {
     overflow: hidden;
     transition: all 0.5s ease;
+    position: realative;
+    z-index: 1;
 
     @include card_properties;
 
-    &:hover {
-      box-shadow: 10px 10px 20px rgba(76, 66, 255, 0.8);
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s ease;
+
+      @include card_properties;
+      @include gradient_blue_bg;
     }
   }
 
@@ -26,6 +38,12 @@
   @include lg {
     &:hover img {
       transform: scale(1.2);
+    }
+
+    &:hover &__imgCon:before {
+      visibility: visible;
+      transform: translate3d(4%, 4%, 0);
+      opacity: 1;
     }
   }
 }

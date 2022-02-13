@@ -1,4 +1,6 @@
 .porfolio {
+  width: 100%;
+
   @include section_padding;
   @include safe_margin_wide_screen;
 

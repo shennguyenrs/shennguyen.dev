@@ -1,0 +1,26 @@
+// Project card information
+@mixin card_properties {
+  height: $project_card;
+  width: $project_card;
+  border-radius: $general_radius;
+}
+
+// Navigation link
+@mixin go_to_link_con {
+  display: flex;
+  justify-content: center;
+
+  @include section_padding;
+}
+
+// Blur dots in background
+@mixin blur_dot {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  border-radius: 100%;
+  filter: blur(250px);
+  z-index: -1;
+
+  @include breathing_dot;
+}

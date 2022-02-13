@@ -1,0 +1,281 @@
+@import './abstracts/_variables.scss';
+@import './abstracts/_mixins.scss';
+
+$gap: 2rem;
+
+.aboutMe {
+  @include top_section_con;
+  @include safe_margin_wide_screen;
+
+  position: relative;
+  overflow: hidden;
+
+  @include md {
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+
+  .blur_dot_red {
+    @include blur_dot;
+    @include red_dot;
+
+    top: 12rem;
+    left: -2rem;
+  }
+
+  .blur_dot_blue {
+    @include blur_dot;
+    @include blue_dot;
+
+    top: -24rem;
+    right: -2rem;
+  }
+
+  .blur_dot_yellow {
+    @include blur_dot;
+    @include yellow_dot;
+
+    @include sm {
+      left: -6rem;
+      bottom: -10rem;
+    }
+
+    @include md {
+      left: 22rem;
+      bottom: -20rem;
+    }
+
+    @include lg {
+      left: 50rem;
+    }
+  }
+
+  &__header {
+    @include section_header;
+
+    position: relative;
+
+    @include sm {
+      @include gradient_bottom_line(10.5rem);
+    }
+
+    @include md {
+      @include gradient_bottom_line(17rem);
+    }
+  }
+
+  &__conOne {
+    @include container_margin;
+
+    @include sm {
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+      text-align: center;
+    }
+
+    @include lg {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      column-gap: $gap;
+      text-align: left;
+    }
+  }
+
+  img {
+    @include sm {
+      max-width: 200px;
+    }
+
+    @include md {
+      max-width: 250px;
+    }
+
+    @include lg {
+      max-width: 300px;
+    }
+  }
+
+  &__img {
+    position: relative;
+    z-index: 1;
+    margin: auto auto;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      z-index: -1;
+      border-radius: $general_radius;
+
+      @include gradient_yellow_bg;
+
+      @include sm {
+        width: 200px;
+        height: 200px;
+        top: 1rem;
+        left: -1rem;
+      }
+
+      @include md {
+        width: 250px;
+        height: 250px;
+        top: 1.6rem;
+        left: -1.6rem;
+      }
+
+      @include lg {
+        width: 300px;
+        height: 300px;
+      }
+    }
+  }
+
+  &__w {
+    font-size: 3rem;
+    overflow: hidden;
+
+    p {
+      font-size: 1.6rem;
+    }
+
+    .waveHand {
+      display: inline-block;
+      margin-left: 1rem;
+
+      @include sm {
+        font-size: 2.4rem;
+      }
+
+      @include lg {
+        font-size: 3rem;
+      }
+
+      @include waving_hand;
+    }
+  }
+
+  p {
+    margin-top: 2rem;
+  }
+
+  &__conTwo {
+    @include sm {
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+    }
+
+    @include lg {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      column-gap: $gap;
+    }
+
+    &__left {
+      @include moved_from_side('left', -100%);
+    }
+
+    &__right {
+      @include moved_from_side('right', 100%);
+    }
+  }
+
+  &__tags {
+    margin-top: 2rem;
+
+    @include sm {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      padding: 0 1rem;
+      margin-top: 1rem;
+      background-color: $ryb;
+      border-radius: $general_radius;
+      text-align: center;
+    }
+
+    .tags__noti {
+      background-color: transparent;
+      text-align: left;
+    }
+
+    .tags__con {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include sm {
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      @include md {
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      &__fw {
+        p {
+          background-color: $yellow;
+          color: $dark_bg;
+        }
+      }
+
+      &__sl {
+        p {
+          background-color: $light_red;
+        }
+      }
+
+      &__db {
+        p {
+          background-color: $light_yellow;
+          color: $dark_bg;
+        }
+      }
+
+      &__not {
+        p {
+          background-color: $white_bg;
+          color: $dark_bg;
+        }
+      }
+    }
+  }
+
+  &__link {
+    @include go_to_link_con;
+  }
+}
+
+.infoCard {
+  &__con {
+    @include gradient_blue_bg;
+    border-radius: $general_radius;
+    padding: 1rem;
+    line-height: 2.4rem;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  &__part {
+    margin-bottom: 1.2rem;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__part:last-child {
+    margin-bottom: 0;
+  }
+
+  &__header {
+    font-weight: 700;
+    color: $dark_bg;
+  }
+}

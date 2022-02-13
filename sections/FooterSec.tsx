@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import useHook from '../hooks/useHover';
 
@@ -56,6 +57,20 @@ const FooterSec = () => {
       >
         {message}
       </p>
+      <div className={styles.footer__link}>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+        <Link href="/projects">
+          <a>Projects</a>
+        </Link>
+        <Link href="/blog">
+          <a>Blog</a>
+        </Link>
+      </div>
     </div>
   );
 };

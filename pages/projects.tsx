@@ -16,10 +16,10 @@ import styles from '../styles/projects.module.scss';
 
 const AllProjects = ({ projects }: { projects: ProjectInfo[] }) => {
   return (
-    <div className={styles.project}>
-      <div className={styles.porfolio}>
-        <p className={styles.project__header}>All Projects</p>
-        <div className={styles.porfolio__con}>
+    <>
+      <div className={styles.projects}>
+        <p className={styles.projects__header}>All Projects</p>
+        <div className={styles.projects__con}>
           {projects.map((item) => (
             <ProjectCard
               key={item.name}
@@ -32,19 +32,19 @@ const AllProjects = ({ projects }: { projects: ProjectInfo[] }) => {
             />
           ))}
         </div>
+        <div className={styles.projects__link}>
+          <GoToButton targetLink="/" content="Go back" />
+        </div>
       </div>
-      <div className={styles.porfolio__con}>
-        <GoToButton targetLink="/" content="Go back" />
-      </div>
-      <div className={styles.project__footer}>
-        <FooterSec />
-      </div>
-    </div>
+      <FooterSec />
+    </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = (await axios.get('http://localhost:3000/api/projects')) as any;
+  const res = (await axios.get(
+    `http://localhost:${process.env.PORT}/api/projects`
+  )) as any;
   let projects: ProjectInfo[] = res.data;
 
   return {
