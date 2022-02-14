@@ -14,16 +14,16 @@
       text-align: center;
     }
 
-		@include md {
-			font-size: 34px;
-		}
+    @include md {
+      font-size: 34px;
+    }
 
     &__left {
       text-align: right;
       text-transform: uppercase;
       padding: 1rem;
       position: relative;
-      color: transparent;
+      color: transparent !important;
 
       @include secondary_font;
 
@@ -48,15 +48,15 @@
           }
         }
 
-				@include md {
-					font-size: 180px;
-					line-height: 11rem;
+        @include md {
+          font-size: 180px;
+          line-height: 11rem;
 
           &:nth-child(2),
           &:last-child {
             font-size: 100px;
           }
-				}
+        }
       }
     }
   }
