@@ -1,3 +1,5 @@
+import Img from 'next/image';
+
 // Sections
 import FooterSec from '../sections/FooterSec';
 
@@ -6,6 +8,9 @@ import GoToButton from '../components/GoToButton';
 
 // Styles
 import styles from '../styles/aboutMe.module.scss';
+
+// Static images
+import me_tiny from '../public/images/me_tiny.png';
 
 const AboutMe = () => {
   return (
@@ -83,7 +88,12 @@ const AboutMe = () => {
         <p className={styles.aboutMe__header}>About me</p>
         <div className={styles.aboutMe__conOne}>
           <div className={styles.aboutMe__img}>
-            <img src="/images/me_tiny.png" alt="myself-img" />
+            <Img
+              src={me_tiny}
+              alt="myself-img"
+              layout="fill"
+              placeholder="blur"
+            />
           </div>
           <div className={styles.aboutMe__w}>
             <span>H</span>

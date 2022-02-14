@@ -1,3 +1,5 @@
+import Img from 'next/image';
+
 // Icons
 import { IoLogoGithub, IoChevronForwardOutline } from 'react-icons/io5';
 
@@ -32,7 +34,7 @@ const ProjectCard = ({
     }
 
     return (
-      <a href={targetLink} target="_blank">
+      <a href={targetLink}>
         <p>View site</p>
       </a>
     );
@@ -42,7 +44,7 @@ const ProjectCard = ({
     <div>
       <div className={styles.projectCon}>
         <div className={styles.projectCon__imgCon}>
-          <img src={imgSource} />
+          <Img src={imgSource} alt={`${header}`} layout="fill" />
         </div>
       </div>
       <div className={styles.infoCon}>
@@ -73,7 +75,7 @@ const ProjectCard = ({
         {!isTargetAvailable(sourcecode) && (
           <button className={styles.buttonCon__btn}>
             <IoLogoGithub fontSize="1.4rem" />
-            <a href={sourcecode} target="_blank">
+            <a href={sourcecode}>
               <p>View source</p>
             </a>
           </button>

@@ -1,6 +1,7 @@
 @mixin secondary_font {
   font-family: 'Alfa Slab One', cursive;
   letter-spacing: 5px;
+  font-weight: 500;
 }
 
 @mixin hero_header {

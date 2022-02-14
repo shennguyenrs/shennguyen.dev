@@ -1,4 +1,5 @@
 import type { GetServerSideProps } from 'next';
+import Img from 'next/image';
 import axios from 'axios';
 import { m, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
@@ -20,6 +21,9 @@ import { ProjectInfo } from '../models';
 // Animation
 import { scaleUp } from '../lib/animations';
 
+// Static images
+import me_tiny from '../public/images/me_tiny.png';
+
 const Home = ({ projects }: { projects: ProjectInfo[] }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView();
@@ -28,7 +32,7 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
     if (inView) {
       controls.start('visible');
     }
-  }, [inView]);
+  }, [inView, controls]);
 
   return (
     <div className={styles.home}>
@@ -41,7 +45,7 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
             Hi, My name is An Nguyen
           </h1>
           <p className={styles.heroContainer__p}>
-            I'm learning to become a full-stack developer
+            I am learning to become a full-stack developer
           </p>
         </div>
       </div>
@@ -56,7 +60,12 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
           transition={scaleUp.transition}
         >
           <div className={styles.about__img}>
-            <img src="/images/me_tiny.png" alt="myself-img" />
+            <Img
+              src={me_tiny}
+              alt="myself-img"
+              layout="fill"
+              placeholder="blur"
+            />
           </div>
           <div className={styles.about__p}>
             <p>

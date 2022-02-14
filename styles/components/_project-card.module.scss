@@ -14,6 +14,10 @@
 
     @include card_properties;
 
+    span {
+      border-radius: $general_radius;
+    }
+
     &:before {
       position: absolute;
       content: '';

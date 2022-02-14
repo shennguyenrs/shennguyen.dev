@@ -24,3 +24,26 @@
 
   @include breathing_dot;
 }
+
+// Next img components
+@mixin next_img_com {
+  span {
+    display: inline-block !important;
+    position: relative !important;
+
+    @include sm {
+      width: 200px !important;
+      height: 200px !important;
+    }
+
+    @include md {
+      width: 250px !important;
+      height: 250px !important;
+    }
+
+    @include lg {
+      width: 300px !important;
+      height: 300px !important;
+    }
+  }
+}

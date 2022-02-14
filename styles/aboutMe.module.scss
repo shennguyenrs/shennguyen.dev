@@ -98,24 +98,12 @@ $gap: 2rem;
     }
   }
 
-  img {
-    @include sm {
-      max-width: 200px;
-    }
-
-    @include md {
-      max-width: 250px;
-    }
-
-    @include lg {
-      max-width: 300px;
-    }
-  }
-
   &__img {
     position: relative;
     z-index: 1;
     margin: auto auto;
+
+    @include next_img_com;
 
     &::after {
       content: '';
