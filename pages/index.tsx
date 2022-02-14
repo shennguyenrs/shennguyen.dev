@@ -85,7 +85,7 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
         <div className={styles.porfolio__con}>
           {projects.map((item) => (
             <ProjectCards
-              key={item.name}
+              key={item._id}
               header={item.name}
               description={item.description}
               imgSource={item.image}

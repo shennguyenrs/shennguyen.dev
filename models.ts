@@ -4,6 +4,7 @@ export interface TechStack {
 }
 
 export interface ProjectInfo {
+  _id?: string;
   name: string;
   description: string;
   image: string;
