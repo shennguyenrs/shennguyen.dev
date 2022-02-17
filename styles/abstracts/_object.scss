@@ -1,3 +1,8 @@
+@use 'variables' as *;
+@use 'breakpoint' as *;
+@use 'animation' as *;
+@use 'layout' as *;
+
 // Project card information
 @mixin card_properties {
   height: $project_card;

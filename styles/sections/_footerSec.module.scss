@@ -1,19 +1,21 @@
-@import '../abstracts/_mixins.scss';
-@import '../abstracts/_variables.scss';
+@use 'styles/abstracts/variables';
+@use 'styles/abstracts/breakpoint';
+@use 'styles/abstracts/layout';
+@use 'styles/abstracts/animation';
 
 .footer {
-  background-color: $ryb;
+  background-color: variables.$ryb;
   text-align: center;
   font-weight: 400;
   margin-top: auto;
 
-  @include section_padding;
+  @include layout.section_padding;
 
-  @include sm {
+  @include breakpoint.sm {
     font-size: 1.2rem;
   }
 
-  @include md {
+  @include breakpoint.md {
     font-size: 1.4rem;
   }
 
@@ -31,9 +33,9 @@
   &__mes {
     max-width: fit-content;
     margin: auto;
-    color: $yellow;
+    color: variables.$yellow;
 
-    @include bounce_up_down;
+    @include animation.bounce_up_down;
 
     &__noAnimate {
       animation: none;

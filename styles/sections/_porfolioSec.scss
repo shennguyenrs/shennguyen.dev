@@ -1,19 +1,23 @@
+@use 'styles/abstracts/layout';
+@use 'styles/abstracts/breakpoint';
+@use 'styles/abstracts/typography';
+@use 'styles/abstracts/gradient';
+
 .porfolio {
   width: 100%;
 
-  @include section_padding;
-  @include safe_margin_wide_screen;
+  @include layout.section_padding;
+  @include layout.safe_margin_wide_screen;
 
   &__header {
-    @include section_header;
-    position: relative;
+    @include typography.section_header;
 
-    @include sm {
-      @include gradient_bottom_line(9rem);
+    @include breakpoint.sm {
+      @include gradient.gradient_bottom_line(9rem);
     }
 
-    @include md {
-      @include gradient_bottom_line(14rem);
+    @include breakpoint.md {
+      @include gradient.gradient_bottom_line(14rem);
     }
   }
 
@@ -23,6 +27,6 @@
     justify-content: space-around;
     gap: 4rem;
 
-    @include container_margin;
+    @include layout.container_margin;
   }
 }

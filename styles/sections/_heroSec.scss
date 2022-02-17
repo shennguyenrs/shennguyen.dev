@@ -1,3 +1,10 @@
+@use 'styles/abstracts/breakpoint';
+@use 'styles/abstracts/gradient';
+@use 'styles/abstracts/animation';
+@use 'styles/abstracts/layout';
+@use 'styles/abstracts/typography';
+@use 'styles/abstracts/variables';
+
 .heroSection {
   height: 100vh;
   text-align: center;
@@ -7,17 +14,17 @@
   justify-items: center;
   align-items: center;
 
-  @include sm {
+  @include breakpoint.sm {
     background-size: 200% 100%;
   }
 
-  @include md {
+  @include breakpoint.md {
     background-size: 100% 100%;
   }
 
-  @include hero_mesh_bg;
-  @include hue-rotate;
-  @include section_padding;
+  @include gradient.hero_mesh_bg;
+  @include animation.hue-rotate;
+  @include layout.section_padding;
 }
 
 .heroContainer {
@@ -25,10 +32,10 @@
   grid-column-end: 4;
   grid-row-start: 2;
 
-  @include fade_up;
+  @include animation.fade_up;
 
   &__header {
-    @include hero_header;
+    @include typography.hero_header;
   }
 
   &__p {
@@ -39,12 +46,12 @@
 .heroFooter {
   grid-column-start: 1;
   grid-row-start: 3;
-  font-size: $h3_font_size;
+  font-size: variables.$h3_font_size;
   display: flex;
   align-items: center;
   gap: 1rem;
 
   &__p:hover {
-    color: $yellow;
+    color: variables.$yellow;
   }
 }

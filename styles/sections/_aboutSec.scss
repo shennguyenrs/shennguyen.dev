@@ -1,68 +1,72 @@
+@use 'styles/abstracts/layout';
+@use 'styles/abstracts/typography';
+@use 'styles/abstracts/breakpoint';
+@use 'styles/abstracts/gradient';
+@use 'styles/abstracts/object';
+@use 'styles/abstracts/variables';
+@use 'styles/abstracts/pseudo';
+
 .about {
-  @include section_padding;
-  @include safe_margin_wide_screen;
+  @include layout.section_padding;
+  @include layout.safe_margin_wide_screen;
 
   &__header {
-    @include section_header;
+    @include typography.section_header;
 
-    @include sm {
-      position: relative;
-      @include gradient_bottom_line(11rem);
+    @include breakpoint.sm {
+      @include gradient.gradient_bottom_line(11rem);
     }
 
-    @include md {
-      @include gradient_bottom_line(17rem);
+    @include breakpoint.md {
+      @include gradient.gradient_bottom_line(17rem);
     }
   }
 
   &__container {
     display: flex;
 
-    @include container_margin;
+    @include layout.container_margin;
 
-    @include sm {
+    @include breakpoint.sm {
       flex-direction: column;
       gap: 2rem;
       justify-content: center;
     }
 
-    @include md {
+    @include breakpoint.md {
       flex-direction: row;
       gap: 4rem;
     }
   }
 
   &__img {
-    position: relative;
     z-index: 1;
     margin: auto auto;
 
-    @include next_img_com;
+    @include object.next_img_com;
 
-    &::after {
-      content: '';
+    @include pseudo.pseudo(after) {
       display: inline-block;
-      position: absolute;
       z-index: -1;
-      border-radius: $general_radius;
+      border-radius: variables.$general_radius;
 
-      @include gradient_yellow_bg;
+      @include gradient.gradient_yellow_bg;
 
-      @include sm {
+      @include breakpoint.sm {
         width: 200px;
         height: 200px;
         top: 1rem;
         left: 1rem;
       }
 
-      @include md {
+      @include breakpoint.md {
         width: 250px;
         height: 250px;
         top: 1.6rem;
         left: 1.6rem;
       }
 
-      @include lg {
+      @include breakpoint.lg {
         width: 300px;
         height: 300px;
       }
@@ -70,22 +74,22 @@
   }
 
   &__p {
-    position: relative;
     z-index: 1;
 
-    &::after {
-      content: url('/images/quote_tiny.png');
-      position: absolute;
+    @include pseudo.pseudo(
+      after,
+      url('/images/quote_tiny.png'),
+      $bottom: 0,
+      $right: 0
+    ) {
       display: inline-block;
-      right: 0;
-      bottom: 1rem;
       z-index: -1;
 
-      @include sm {
+      @include breakpoint.sm {
         opacity: 0.4;
       }
 
-      @include lg {
+      @include breakpoint.lg {
         opacity: 1;
       }
     }

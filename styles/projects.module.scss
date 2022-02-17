@@ -1,45 +1,48 @@
-@import './abstracts/_variables.scss';
-@import './abstracts/_mixins.scss';
+@use 'abstracts/layout';
+@use 'abstracts/typography';
+@use 'abstracts/breakpoint';
+@use 'abstracts/gradient';
+@use 'abstracts/object';
 
 .projects {
-  @include top_section_con;
-  @include safe_margin_wide_screen;
+  @include layout.top_section_con;
+  @include layout.safe_margin_wide_screen;
 
   &__header {
-    @include section_header;
+    @include typography.section_header;
 
     margin-top: 2rem;
 
-    @include sm {
-      @include gradient_bottom_line(13rem);
+    @include breakpoint.sm {
+      @include gradient.gradient_bottom_line(13rem);
     }
 
-    @include md {
-      @include gradient_bottom_line(21rem);
+    @include breakpoint.md {
+      @include gradient.gradient_bottom_line(21rem);
     }
   }
 
   &__con {
-    @include container_margin;
+    @include layout.container_margin;
 
-    @include sm {
+    @include breakpoint.sm {
       display: flex;
       flex-direction: column;
       gap: 4rem;
     }
 
-    @include md {
+    @include breakpoint.md {
       display: grid;
       grid-gap: 4rem;
       grid-template-columns: 1fr 1fr;
     }
 
-    @include lg {
+    @include breakpoint.lg {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   &__link {
-    @include go_to_link_con;
+    @include object.go_to_link_con;
   }
 }

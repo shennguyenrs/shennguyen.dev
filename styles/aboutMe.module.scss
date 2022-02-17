@@ -1,51 +1,56 @@
-@import './abstracts/_variables.scss';
-@import './abstracts/_mixins.scss';
+@use 'abstracts/variables';
+@use 'abstracts/layout';
+@use 'abstracts/breakpoint';
+@use 'abstracts/gradient';
+@use 'abstracts/object';
+@use 'abstracts/typography';
+@use 'abstracts/animation';
 
 $gap: 2rem;
 
 .aboutMe {
-  @include top_section_con;
-  @include safe_margin_wide_screen;
+  @include layout.top_section_con;
+  @include layout.safe_margin_wide_screen;
 
   position: relative;
   overflow: hidden;
 
-  @include md {
+  @include breakpoint.md {
     font-size: 1.6rem;
     line-height: 3rem;
   }
 
   .blur_dot_red {
-    @include blur_dot;
-    @include red_dot;
+    @include object.blur_dot;
+    @include gradient.red_dot;
 
     top: 12rem;
     left: -2rem;
   }
 
   .blur_dot_blue {
-    @include blur_dot;
-    @include blue_dot;
+    @include object.blur_dot;
+    @include gradient.blue_dot;
 
     top: -24rem;
     right: -2rem;
   }
 
   .blur_dot_yellow {
-    @include blur_dot;
-    @include yellow_dot;
+    @include object.blur_dot;
+    @include gradient.yellow_dot;
 
-    @include sm {
+    @include breakpoint.sm {
       left: -6rem;
       bottom: -10rem;
     }
 
-    @include md {
+    @include breakpoint.md {
       left: 22rem;
       bottom: -20rem;
     }
 
-    @include lg {
+    @include breakpoint.lg {
       left: 50rem;
     }
   }
@@ -69,28 +74,28 @@ $gap: 2rem;
   }
 
   &__header {
-    @include section_header;
+    @include typography.section_header;
 
-    @include sm {
-      @include gradient_bottom_line(10.5rem);
+    @include breakpoint.sm {
+      @include gradient.gradient_bottom_line(10.5rem);
     }
 
-    @include md {
-      @include gradient_bottom_line(17rem);
+    @include breakpoint.md {
+      @include gradient.gradient_bottom_line(17rem);
     }
   }
 
   &__conOne {
-    @include container_margin;
+    @include layout.container_margin;
 
-    @include sm {
+    @include breakpoint.sm {
       display: flex;
       flex-direction: column;
       gap: $gap;
       text-align: center;
     }
 
-    @include lg {
+    @include breakpoint.lg {
       display: grid;
       grid-template-columns: 1fr 2fr;
       column-gap: $gap;
@@ -103,32 +108,32 @@ $gap: 2rem;
     z-index: 1;
     margin: auto auto;
 
-    @include next_img_com;
+    @include object.next_img_com;
 
     &::after {
       content: '';
       display: inline-block;
       position: absolute;
       z-index: -1;
-      border-radius: $general_radius;
+      border-radius: variables.$general_radius;
 
-      @include gradient_yellow_bg;
+      @include gradient.gradient_yellow_bg;
 
-      @include sm {
+      @include breakpoint.sm {
         width: 200px;
         height: 200px;
         top: 1rem;
         left: -1rem;
       }
 
-      @include md {
+      @include breakpoint.md {
         width: 250px;
         height: 250px;
         top: 1.6rem;
         left: -1.6rem;
       }
 
-      @include lg {
+      @include breakpoint.lg {
         width: 300px;
         height: 300px;
       }
@@ -147,15 +152,15 @@ $gap: 2rem;
       display: inline-block;
       margin-left: 1rem;
 
-      @include sm {
+      @include breakpoint.sm {
         font-size: 2.4rem;
       }
 
-      @include lg {
+      @include breakpoint.lg {
         font-size: 3rem;
       }
 
-      @include waving_hand;
+      @include animation.waving_hand;
     }
   }
 
@@ -164,31 +169,31 @@ $gap: 2rem;
   }
 
   &__conTwo {
-    @include sm {
+    @include breakpoint.sm {
       display: flex;
       flex-direction: column;
       gap: $gap;
     }
 
-    @include lg {
+    @include breakpoint.lg {
       display: grid;
       grid-template-columns: 2fr 1fr;
       column-gap: $gap;
     }
 
     &__left {
-      @include moved_from_side('left', -100%);
+      @include animation.moved_from_side('left', -100%);
     }
 
     &__right {
-      @include moved_from_side('right', 100%);
+      @include animation.moved_from_side('right', 100%);
     }
   }
 
   &__tags {
     margin-top: 2rem;
 
-    @include sm {
+    @include breakpoint.sm {
       display: flex;
       flex-direction: column;
     }
@@ -196,8 +201,8 @@ $gap: 2rem;
     p {
       padding: 0 1rem;
       margin-top: 1rem;
-      background-color: $ryb;
-      border-radius: $general_radius;
+      background-color: variables.$ryb;
+      border-radius: variables.$general_radius;
       text-align: center;
     }
 
@@ -210,54 +215,54 @@ $gap: 2rem;
       display: flex;
       flex-wrap: wrap;
 
-      @include sm {
+      @include breakpoint.sm {
         gap: 0.5rem;
         margin-bottom: 0.5rem;
       }
 
-      @include md {
+      @include breakpoint.md {
         gap: 1rem;
         margin-bottom: 1rem;
       }
 
       &__fw {
         p {
-          background-color: $yellow;
-          color: $dark_bg;
+          background-color: variables.$yellow;
+          color: variables.$dark_bg;
         }
       }
 
       &__sl {
         p {
-          background-color: $light_red;
+          background-color: variables.$light_red;
         }
       }
 
       &__db {
         p {
-          background-color: $light_yellow;
-          color: $dark_bg;
+          background-color: variables.$light_yellow;
+          color: variables.$dark_bg;
         }
       }
 
       &__not {
         p {
-          background-color: $white_bg;
-          color: $dark_bg;
+          background-color: variables.$white_bg;
+          color: variables.$dark_bg;
         }
       }
     }
   }
 
   &__link {
-    @include go_to_link_con;
+    @include object.go_to_link_con;
   }
 }
 
 .infoCard {
   &__con {
-    @include gradient_blue_bg;
-    border-radius: $general_radius;
+    @include gradient.gradient_blue_bg;
+    border-radius: variables.$general_radius;
     padding: 1rem;
     line-height: 2.4rem;
 
@@ -280,6 +285,6 @@ $gap: 2rem;
 
   &__header {
     font-weight: 700;
-    color: $dark_bg;
+    color: variables.$dark_bg;
   }
 }

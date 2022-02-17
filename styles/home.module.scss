@@ -1,35 +1,34 @@
-// Abstracts
-@import './abstracts/_variables.scss';
-@import './abstracts/_mixins.scss';
+@use 'abstracts/object';
+@use 'abstracts/gradient';
 
 // Sections
-@import './sections/_heroSec.scss';
-@import './sections/_porfolioSec.scss';
-@import './sections/_aboutSec.scss';
+@use 'sections/heroSec';
+@use 'sections/porfolioSec';
+@use 'sections/aboutSec';
 
 .home {
   position: relative;
   overflow: hidden;
 
   .blur_dot_red {
-    @include blur_dot;
-    @include red_dot;
+    @include object.blur_dot;
+    @include gradient.red_dot;
 
     bottom: 0;
     left: 0;
   }
 
   .blur_dot_blue {
-    @include blur_dot;
-    @include blue_dot;
+    @include object.blur_dot;
+    @include gradient.blue_dot;
 
     top: 70rem;
     right: -15rem;
   }
 
   .blur_dot_yellow {
-    @include blur_dot;
-    @include yellow_dot;
+    @include object.blur_dot;
+    @include gradient.yellow_dot;
 
     top: 40rem;
     left: 0rem;

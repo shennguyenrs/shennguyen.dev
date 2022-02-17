@@ -1,35 +1,33 @@
-// Abstracts
-@import '../abstracts/_variables.scss';
-@import '../abstracts/_mixins.scss';
+@use 'styles/abstracts/variables';
+@use 'styles/abstracts/breakpoint';
 
 body {
-  background-color: $dark_bg;
-  font-family: $primary_font;
+  background-color: variables.$dark_bg;
+  font-family: variables.$primary_font;
   font-weight: 200;
   line-height: 2rem;
-  color: $white_bg;
+  color: variables.$white_bg;
   display: block;
 
-  @include sm {
+  @include breakpoint.sm {
     font-size: 18px;
   }
 
-  @include md {
+  @include breakpoint.md {
     font-size: 20px;
   }
 
-  @include lg {
+  @include breakpoint.lg {
     font-size: 22px;
   }
 }
 
 button {
-  background-color: $ryb;
-  color: $white_bg;
+  background-color: variables.$ryb;
+  color: variables.$white_bg;
   border: none;
-  border-radius: $general_radius;
+  border-radius: variables.$general_radius;
   cursor: pointer;
-
   transition: all 0.2s ease;
 
   &:active {

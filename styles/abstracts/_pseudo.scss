@@ -1,0 +1,21 @@
+@mixin pseudo(
+  $sel,
+  $content: '',
+  $pos: absolute,
+  $top: auto,
+  $bottom: auto,
+  $left: auto,
+  $right: auto
+) {
+  position: relative;
+
+  &::#{$sel} {
+    content: $content;
+    position: $pos;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+    @content;
+  }
+}

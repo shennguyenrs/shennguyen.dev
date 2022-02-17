@@ -1,3 +1,6 @@
+@use 'variables' as *;
+@use 'pseudo' as *;
+
 // Linear gradient from yellow to red
 @mixin gradient_yellow_bg {
   background: linear-gradient(60deg, $yellow 0%, $light_red 100%);
@@ -14,15 +17,10 @@
 
 // Linear gradient yellow to red for text
 @mixin gradient_bottom_line($width) {
-  &::after {
-    content: '';
-    position: absolute;
+  @include pseudo(after, $bottom: -2px, $left: 0) {
     height: 0.4rem;
     width: #{$width};
     border-radius: $general_radius;
-    bottom: -2px;
-    left: 0;
-
     @include gradient_yellow_bg;
   }
 }
