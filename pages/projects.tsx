@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 
 // Components
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from '../components/ProjectCard/ProjectCard';
 import GoToButton from '../components/GoToButton';
 
 // Sections

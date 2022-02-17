@@ -12,7 +12,7 @@ import styles from '../styles/home.module.scss';
 import FooterSec from '../sections/FooterSec';
 
 // Components
-import ProjectCards from '../components/ProjectCard';
+import ProjectCard from '../components/ProjectCard/ProjectCard';
 import GoToButton from '../components/GoToButton';
 
 // Models
@@ -84,7 +84,7 @@ const Home = ({ projects }: { projects: ProjectInfo[] }) => {
         <h1 className={styles.porfolio__header}>Porfolio</h1>
         <div className={styles.porfolio__con}>
           {projects.map((item) => (
-            <ProjectCards
+            <ProjectCard
               key={item._id}
               header={item.name}
               description={item.description}

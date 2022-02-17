@@ -1,15 +1,15 @@
 @use 'styles/abstracts/variables';
 @use 'styles/abstracts/object';
 @use 'styles/abstracts/gradient';
-@use 'styles/abstracts/breakpoint';
 @use 'styles/abstracts/pseudo';
+@use 'styles/abstracts/breakpoint';
 
-.projectCon {
+.imgCon {
   position: relative;
 
   @include object.card_properties;
 
-  &__imgCon {
+  &__con {
     overflow: hidden;
     transition: all 0.5s ease;
     position: static !important;
@@ -42,45 +42,10 @@
       transform: scale(1.2);
     }
 
-    &:hover &__imgCon:before {
+    &:hover &__con:before {
       visibility: visible;
       transform: translate3d(4%, 4%, 0);
       opacity: 1;
-    }
-  }
-}
-
-.infoCon {
-  max-width: variables.$project_card;
-  margin-top: 1rem;
-
-  &__header {
-    font-weight: 700;
-  }
-
-  &__p {
-    font-style: italic;
-  }
-
-  &__title {
-    color: variables.$yellow;
-  }
-}
-
-.buttonCon {
-  visibility: visible;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-
-    &__disabled {
-      background-color: variables.$light_red;
     }
   }
 }
