@@ -36,15 +36,19 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
           link: doc.data().link,
           sourcecode: doc.data().sourcecode,
           details: doc.data().details,
+          added: doc.data().added,
         });
       });
 
+      // Sort projects by added time
+      const sortProjects = tempProjects.sort((a, b) => b.added - a.added);
+
       // Slice data if slice param is found
       if (slice) {
-        return res.status(200).json(tempProjects.splice(0, 3));
+        return res.status(200).json(sortProjects.splice(0, 3));
       }
 
-      return res.status(200).json(tempProjects);
+      return res.status(200).json(sortProjects);
     } catch (err) {
       console.log(err);
     }
