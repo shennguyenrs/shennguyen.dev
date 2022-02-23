@@ -34,7 +34,7 @@ const ButtonCon = ({
         <p>Server Down</p>
       </Include>
     </button>
-    <Include condition={!Boolean(sourceLink)}>
+    <Include condition={Boolean(sourceLink)}>
       <button className={styles.buttonCon__btn}>
         <IoLogoGithub fontSize="1.4rem" />
         <a href={sourceLink}>

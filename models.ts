@@ -11,4 +11,5 @@ export interface ProjectInfo {
   link: string;
   sourcecode: string;
   details: TechStack[];
+  added: number;
 }
