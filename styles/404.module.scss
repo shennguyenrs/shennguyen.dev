@@ -3,6 +3,7 @@
 @use 'abstracts/gradient';
 @use 'abstracts/typography';
 @use 'abstracts/animation';
+@use 'abstracts/layout';
 
 .rects_bg {
   position: absolute;
@@ -29,6 +30,9 @@
     padding-top: 16vh;
     flex-direction: row;
   }
+
+  @include layout.safe_margin_wide_screen;
+  @include layout.section_padding;
 
   &__left {
     text-align: right;
