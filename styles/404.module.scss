@@ -20,6 +20,11 @@
     gap: 5vw;
     text-align: center;
     padding-top: 14vh;
+
+    line-height: normal;
+
+    @include layout.safe_margin_wide_screen;
+    @include layout.section_padding;
   }
 
   @include breakpoint.md {
@@ -30,9 +35,6 @@
     padding-top: 16vh;
     flex-direction: row;
   }
-
-  @include layout.safe_margin_wide_screen;
-  @include layout.section_padding;
 
   &__left {
     text-align: right;
