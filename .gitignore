@@ -39,3 +39,4 @@ yarn-error.log*
 .eslintcache
 .vscode
 gcloud_credential.json
+projectInfo.ts

@@ -34,3 +34,6 @@ yarn-error.log*
 
 # .next directory
 .next/
+
+# Other file
+projectInfo.ts
