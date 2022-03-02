@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { useEffect } from 'react';
 
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 
@@ -12,15 +11,6 @@ import '../styles/core/_global.scss';
 import { slideRight } from '../lib/animations';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  // Remove server side inject css
-  useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side');
-
-    if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles);
-    }
-  }, []);
-
   return (
     <>
       <Head>
