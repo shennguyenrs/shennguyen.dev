@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import useHook from '../hooks/useHover';
 
@@ -36,16 +37,31 @@ const FooterSec = () => {
       <p>Handcrafted by me. Made in 🇫🇮</p>
       <div className={styles.footer__social}>
         <a ref={linkedin} href="https://linkedin.com/in/annguyen080196">
-          <img src="/images/linkedin_tiny.png" alt="linkedin" />
+          <Image
+            src="/images/linkedin_tiny.png"
+            alt="linkedin"
+            width="40px"
+            height="40px"
+          />
         </a>
         <a
           ref={email}
-          href="mailto:shennguyen.redshinobi96@gmail.com?subject=Hi%2C%20Nice%20to%20meet%20you%20%F0%9F%91%8B&body=My%20name%20is"
+          href="mailto:81.annguyen@gmail.com?subject=Hi%2C%20Nice%20to%20meet%20you%20%F0%9F%91%8B&body=My%20name%20is"
         >
-          <img src="/images/at_tiny.png" alt="at" />
+          <Image
+            src="/images/at_tiny.png"
+            alt="at"
+            width="40px"
+            height="40px"
+          />
         </a>
         <a ref={phone} href="https://wa.me/0449314926">
-          <img src="/images/whatsapp_tiny.png" alt="whatsapp" />
+          <Image
+            src="/images/whatsapp_tiny.png"
+            alt="whatsapp"
+            width="40px"
+            height="40px"
+          />
         </a>
       </div>
       <p
