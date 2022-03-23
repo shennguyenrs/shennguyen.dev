@@ -14,6 +14,28 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
+        <title>Shen Nguyen</title>
+        <link rel="canonical" href="https://shennguyen.me" />
+        <meta name="description" content="Shen Nguyen's Blog and Porfolio" />
+        <meta
+          name="keywords"
+          content="web developement, next js, react js, web design, scss, redux, api, sql, google app engine, mongo db, firebase, headless cms"
+        />
+        <meta property="og:site_name" content="Shen Nguyen's Blog & Porfolio" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:title"
+          content="Shen Nguyen's personal blog and porfolio"
+        />
+        <meta property="og:url" content="https://shennguyen.me" />
+        <meta
+          property="og:description"
+          content="Hi, welcome to my personal blog and porfolio. I design and build things with diffrences technologies"
+        />
+        <meta
+          property="og:image"
+          content="https://shennguyen.me/api/og_thumbnail"
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -38,7 +60,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           rel="stylesheet"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <title>Shen Nguyen</title>
       </Head>
       <LazyMotion features={domAnimation}>
         <AnimatePresence>
