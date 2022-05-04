@@ -18,6 +18,7 @@ export async function getServerSideProps({ res }: GetServerSidePropsContext) {
         '_error.tsx',
         'sitemap.xml.tsx',
         'index.tsx',
+        '404.tsx',
         'api',
         '.eslintcache',
       ].includes(page);
